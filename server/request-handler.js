@@ -70,6 +70,11 @@ var requestHandler = function (request, response) {
       response.writeHead(404, headers);
       response.end();
     }
+  } else if (request.method === 'OPTIONS') {
+    if (request.url.includes('/classes/messages')) {
+      response.writeHead(200, defaultCorsHeaders);
+      response.end();
+    }
   } else {
     response.writeHead(404, headers);
     response.end();
